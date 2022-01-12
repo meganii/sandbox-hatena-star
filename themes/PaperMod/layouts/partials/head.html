@@ -95,6 +95,20 @@
 {{- end }}
 {{- end }}
 
+{{- /* HatenaStar.js */}}
+<script type="text/javascript" src="https://s.hatena.ne.jp/js/HatenaStar.js"></script>
+<script type="text/javascript">
+    Hatena.Star.SiteConfig = {
+        entryNodes: {
+            'div.site-content': {
+                uri: 'window.location',
+                title: 'document.title',
+                container: 'div#hatena-star-container'
+            }
+        }
+    };
+</script>
+
 {{- /* Favicons */}}
 <link rel="icon" href="{{ .Site.Params.assets.favicon | default "favicon.ico" | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
@@ -164,16 +178,3 @@
 {{- template "partials/templates/twitter_cards.html" . }}
 {{- template "partials/templates/schema_json.html" . }}
 {{- end -}}
-
-<script type="text/javascript" src="http://s.hatena.ne.jp/js/HatenaStar.js"></script>
-<script type="text/javascript">
-    Hatena.Star.SiteConfig = {
-        entryNodes: {
-            'div.site-content': {
-                uri: 'window.location',
-                title: 'document.title',
-                container: 'div#hatena-star-container'
-            }
-        }
-    };
-</script>
